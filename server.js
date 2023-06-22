@@ -12,7 +12,7 @@ const session = require('express-session');
 // This lib allows develop handlebars for express
 const exphbs = require('express-handlebars');
 
-// const routes = require('./controllers');
+ const routes = require('./controllers');
 // const helpers = require('./utils/helpers');
 
 //// import sequelize connection

@@ -17,22 +17,33 @@ User.init(
       autoIncrement: true,
     },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(15),
       allowNull: false,
+      validate: {
+        len: [1, 15], // Minimum length of 1 and maximum length of 15
+      },
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      //unique: true,
       validate: {
-        isEmail: true,
+        notNull: true, 
+        isEmail: true, // Validate email format
+        len: [1, 255], // Specify the minimum and maximum length for email
+        isEmailTemplate(value) {
+          // Custom pattern matching for email template
+          if (!/^[\w.+-]+@example\.com$/.test(value)) {
+            throw new Error('Email must be in the example.com domain.');
+          }
+        },
       },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: [8,128],
       },
     },
   },
