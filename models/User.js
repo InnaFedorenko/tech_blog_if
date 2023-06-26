@@ -29,14 +29,14 @@ User.init(
       //unique: true,
       validate: {
         notNull: true, 
-        isEmail: true, // Validate email format
+        //isEmail: true, // Validate email format
         len: [1, 255], // Specify the minimum and maximum length for email
-        isEmailTemplate(value) {
-          // Custom pattern matching for email template
-          if (!/^[\w.+-]+@example\.com$/.test(value)) {
-            throw new Error('Email must be in the example.com domain.');
-          }
-        },
+        // isEmailTemplate(value) {
+        //   // Custom pattern matching for email template
+        //   if (!/^[\w.+-]+@example\.com$/.test(value)) {
+        //     throw new Error('Email must be in the example.com domain.');
+        //   }
+        // },
       },
     },
     password: {

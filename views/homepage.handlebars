@@ -1,24 +1,47 @@
 <!-- Loop over each object in the projects array -->
+{{!-- <div class="container">
+  <h1>The Tech Blog</h1>
+</div>
 {{#each blogs as |blog| }}
-<div class="row mb-4 project">
+<div class="row mb-4 blog">
   <div class="col-md-5">
+    <div class="row">
+      <h2>{{blog.title}}</h2>
+      <p>Created by {{blog.user.name}} on {{format_date blog.date_created}}</p>
+    </div>
     <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/blog/{{blog.id}}">{{blog.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount blog.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{blog.user.name}} on {{format_date blog.date_created}}</p>
+    <div class="row"></div>
+    <p> {{blog.content}}</p>
   </div>
   <div class="col-md-7">
-    <p>
-      {{blog.description}}
-    </p>
+    <button>Comment</button>
+  </div>
+</div>
+{{/each}} --}}
+
+<div class="container">
+  <h1>The Tech Blog</h1>
+</div>
+
+{{#each blogs as |blog| }}
+<div class="accordion" id="accordion{{blog.id}}">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading{{blog.id}}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{blog.id}}" aria-expanded="false" aria-controls="collapse{{blog.id}}">
+        <span class="post-title">{{blog.title}} - Created by <span class="user-name">{{blog.user.name}}</span> on {{format_date blog.date_created}}</span>
+      </button>
+    </h2>
+    <div id="collapse{{blog.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{blog.id}}">
+      <div class="accordion-body">
+        <p>{{blog.content}}</p>
+        <button class="btn btn-primary comment-btn" data-bs-toggle="collapse" data-bs-target="#commentBox{{blog.id}}">Comment</button>
+        <div id="commentBox{{blog.id}}" class="collapse">
+          <input type="text" class="form-control mb-2" placeholder="Enter your comment">
+          <button class="btn btn-primary save-comment-btn">Save</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {{/each}}
+

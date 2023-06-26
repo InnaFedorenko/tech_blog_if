@@ -22,3 +22,35 @@ header, .blog:not(:last-child) {
   font-weight: bold;
   margin-left: -5px;
 }
+.accordion-header {
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 20px black solid; */
+  }
+  
+  .accordion-header:not(.collapsed) {
+    background-color: #0056b3;
+  }
+  
+  .accordion-body {
+    background-color: #f8f9fa;
+    padding: 10px;
+  }
+  
+  .post-title {
+    font-size: 20px;
+  }
+  
+  .post-details {
+    font-size: 20px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-name {
+    margin-left: 5px;
+  }
