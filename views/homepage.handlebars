@@ -34,6 +34,16 @@
     <div id="collapse{{blog.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{blog.id}}">
       <div class="accordion-body">
         <p>{{blog.content}}</p>
+
+
+    {{!-- <section class="flex-row justify-center">
+      {{#each  blog.comments as |comment|}}
+      {{> comment-details}}
+      {{/each}}
+    </section> --}}
+
+
+
         <button class="btn btn-primary comment-btn" data-bs-toggle="collapse" data-bs-target="#commentBox{{blog.id}}">Comment</button>
         <div id="commentBox{{blog.id}}" class="collapse">
           <input type="text" class="form-control mb-2" placeholder="Enter your comment">
